@@ -35,3 +35,40 @@ width: 100px;
     top: 219px;
     cursor: pointer;
 }
+
+
+/* TAB-CARD  */
+.tab-card{
+    width: 87%;
+    margin: auto;
+    height: 100%;
+    margin-top: 24px;
+}
+
+.card{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    margin-bottom: 15px;
+}
+
+.card h2{
+    color: #ffd662ff;
+}
+
+.card p{
+    color: white;
+}
+
+.tab-card img{
+    height: 50px;
+    width: 50px;
+}
+ .btninfo{
+    padding: 4px;
+    margin-top: 15px;
+    margin-left: 10px;
+    background-color: #ffd662ff;
+    border: #00539CFF;
+    border-radius: 2px;
+    cursor: pointer;
+}

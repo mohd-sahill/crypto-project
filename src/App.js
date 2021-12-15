@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
 import "./App.css";
+import axios from "axios";
 import doge from "./images/dogecoin.png";
 import { FiRefreshCcw } from "react-icons/fi";
-import axios from "axios";
+import MyCryptoList from "./MyCryptoList";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
+  const [currency,setCurrency] = useState("")
 
   useEffect(() => {
     axios(
@@ -13,12 +15,18 @@ function App() {
     )
       .then((response) => {
         setData(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch((error) => {
         throw new Error("404")
       });
   }, []);
+
+  const handleCoin = (event) => {
+    event.preventDefault();
+   setCurrency(event.target.value)
+  }
+
 
   return (
     <>
@@ -27,14 +35,16 @@ function App() {
           <img src={doge} alt="" />
           <h1>Welcome to DogeZone</h1>
           <div className="input-section">
-            <input type="text" placeholder="SEARCH FOR A CRYPTOCURRENCY" />
+            <input type="text" placeholder="SEARCH FOR A CRYPTOCURRENCY" onChange = {handleCoin}/>
             <button className="btn">
               {" "}
               <FiRefreshCcw color="#ffd662ff" size="25px" />
             </button>
           </div>
         </div>
+        <MyCryptoList data = {data} currency = {currency}/>
       </main>
+
     </>
   );
 }
