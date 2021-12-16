@@ -1,28 +1,19 @@
 import React from "react";
+import {Link} from "react-router-dom"
 function myCryptoList(props) {
 
-  function checkCurrency(text,currency){
-   text.slice(0,10).map((coin => {
-      if(coin.name.toLowerCase().includes(currency)){
-        console.log(coin.name)
-      }
-   }))
-  }
- checkCurrency(props.data,props.currency)
   return (
     <>
-      <div className="tab-card">
+    <div className="tab-card">
       <div className="card">
           <p></p>
           <h2>RANK</h2>
           <h2>NAME</h2>
           <h2>SYMBOL</h2>
           <h2>PRICE</h2>
-          <h2>MKT-CAP</h2>
-          <a href="#">
-          </a>
+          <h2>MARKET-CAP</h2>
         </div>
-        {props.data.slice(0,10).map((currItem) => {
+        {props.filteredObj.map((currItem) => {
          return (
             <div className="card" key={currItem.id}>
           <img src={currItem.image} alt="" />
@@ -31,10 +22,8 @@ function myCryptoList(props) {
           <p>{currItem.symbol}</p>
           <p>&#8377; {currItem.current_price}</p>
           <p>&#8377; {currItem.market_cap}</p>
-          <a href="#">
             {" "}
-            <button className="btninfo">More info</button>
-          </a>
+          <Link to="/coindetails"><button className="btninfo">More info</button></Link>
         </div>
          )
       })} 
