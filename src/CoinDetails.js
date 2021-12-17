@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import doge from "./images/dogecoin.png";
 import { useState, useEffect } from "react";
 import {useParams , useNavigate} from "react-router-dom"
 
