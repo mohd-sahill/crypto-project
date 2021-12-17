@@ -10,8 +10,8 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/coindetails" element={<CoinDetails />} />
+        <Route exact path="/" element={<App />} />
+        <Route path="/coindetails/:id" element={<CoinDetails />} />
       </Routes>
     </Router>
   </React.StrictMode>,

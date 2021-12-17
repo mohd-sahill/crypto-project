@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom"
 function myCryptoList(props) {
-
   return (
     <>
     <div className="tab-card">
@@ -23,7 +22,7 @@ function myCryptoList(props) {
           <p>&#8377; {currItem.current_price}</p>
           <p>&#8377; {currItem.market_cap}</p>
             {" "}
-          <Link to="/coindetails"><button className="btninfo">More info</button></Link>
+         <Link to={`/coindetails/${currItem.id}`}><button className="btninfo">More info</button></Link>
         </div>
          )
       })} 
